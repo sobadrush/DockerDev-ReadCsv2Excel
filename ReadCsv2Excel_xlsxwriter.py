@@ -13,6 +13,7 @@ print("相對本路徑的txt檔名(不輸入預設為sample.txt): " + filePath)
 
 if os.path.isfile(filePath) == False:
   print('檔案 {} 不存在！！！'.format(filePath))
+  input("按任意鍵離開")
   exit()
 
 dataList = [] # 最後要寫進excel的資料
