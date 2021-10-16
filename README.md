@@ -1,11 +1,10 @@
 
-|  °Ñ¦Ò   | ³sµ²  |
+|  åƒè€ƒ   | é€£çµ  |
 |  ----  | ----  |
-|Python PIP ¨Ï¥Î requirements.txt ºŞ²z®M¥ó¬Û¨Ì©Ê|https://blog.longwin.com.tw/2019/03/python-pip-requirements-txt-management-package-2019/|
-|¡iPython¡j¨Ï¥Î PyInstaller ±N Python¥´¥]¦¨ exe ÀÉ|https://medium.com/pyladies-taiwan/python-%E5%B0%87python%E6%89%93%E5%8C%85%E6%88%90exe%E6%AA%94-32a4bacbe351|
+|Python PIP ä½¿ç”¨ requirements.txt ç®¡ç†å¥—ä»¶ç›¸ä¾æ€§|https://blog.longwin.com.tw/2019/03/python-pip-requirements-txt-management-package-2019/|
+|ã€Pythonã€‘ä½¿ç”¨ PyInstaller å°‡ Pythonæ‰“åŒ…æˆ exe æª”|https://medium.com/pyladies-taiwan/python-%E5%B0%87python%E6%89%93%E5%8C%85%E6%88%90exe%E6%AA%94-32a4bacbe351|
 
-0. ¥i¨Ï¥ÎdockerµêÀÀpythonÀô¹Ò open this folder
-1. ¦w¸Ë®M¥ó: pip install -r ./requirements.txt
-2. ¿é¥Xexe:  pyinstaller.exe -F .\ReadCsv2Excel_xlsxwriter.py 
-3. ­nÅª¨úªº­ì©lÀÉ: sample.txt
-
+0. å¯ä½¿ç”¨dockerè™›æ“¬pythonç’°å¢ƒ open this folder
+1. å®‰è£å¥—ä»¶: pip install -r ./requirements.txt
+2. è¼¸å‡ºexe:  pyinstaller.exe -F .\ReadCsv2Excel_xlsxwriter.py 
+3. è¦è®€å–çš„åŸå§‹æª”: sample.txt
