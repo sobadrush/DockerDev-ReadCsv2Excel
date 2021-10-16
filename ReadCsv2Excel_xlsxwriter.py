@@ -8,8 +8,8 @@ from pandas import DataFrame
 import os
 import xlsxwriter
 
-filePath = input("請輸入要讀取的電文txt檔：") or "./sample.txt" # 讀取的txt檔相對路徑
-print("相對本路徑的txt檔名(不輸入預設為sample.txt): " + filePath)
+filePath = input("請輸入要讀取的電文txt檔(不輸入預設為 sample.txt )：") or "./sample.txt" # 讀取的txt檔相對路徑
+print("相對本路徑的txt檔名: " + filePath)
 
 if os.path.isfile(filePath) == False:
   print('檔案 {} 不存在！！！'.format(filePath))
