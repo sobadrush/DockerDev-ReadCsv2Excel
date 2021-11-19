@@ -1,6 +1,18 @@
 1 TRANRQ object 0 N
-2 IdNo string 12 Y 身分證字號
+	2 StatementDate 	string 		6 		Y 	帳單年月(西元年月)日期格式：YYYYMM
+	2 CustomerId 		string 		12 		N 	身分證字號
+	2 CardNo 	string 		16 		N 	卡號,最小長度必須為六碼
+	2 OrgCode 	string 		3 		N 	資料類別,013：台幣,015：人民幣,016：美金 空白(空值)：表示全部類別
+	2 CategoryCode 	string 		20 		N 	消費類別代碼 C01DEFAULT：生活,C02DEFAULT：交通,C03DEFAULT：娛樂,C04DEFAULT：餐飲,C05DEFAULT：購物,C06DEFAULT：其他
+	2 InquiryKey 	string 		60 		N 	查詢鍵值,前一次下行電文的NextKey(續查鍵值)欄位的內容，可以為空白
+
+
 1 TRANRS object 0 N
-2 BankId object 0 N 行庫代號
-2 BankAcnt object 0 N 自扣帳號
-2 AcntId object 0 N 自扣帳號ＩＤ
+	2 	EndFlag 		String 		2 	Y 	最後一頁註記(00：最後一頁,01：還有資料)
+	2 	NextKey 		String 		60 	Y 	續查鍵值,續查時帶入到下一個上行電文的InquiryKey(查詢鍵值)欄位中
+	2 	OccurCount 		number 		2 	Y 	本次資料筆數，資料格式：NUMBER(2,0)
+	2 	Records 		List 			0 	N 	Minimum=0
+	3 		Record 		Object
+	4 			CardType 	String 		2 	N 	卡別
+	4 			CardNo 		String 		16 	N 	卡號
+	4 			Code 		Number 		2 	N 	交易碼
