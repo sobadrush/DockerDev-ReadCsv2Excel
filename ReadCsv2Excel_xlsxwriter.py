@@ -23,7 +23,7 @@ ws = wb.add_worksheet("電文格式") # sheet
 
 with codecs.open(filePath, "r", "utf-8") as csvFile:
     recordsLevel = 0 # Records 所在的 level
-    recordsIdx = float('inf') # Records 所在的 index
+    recordsIdx = float('inf') # Records 所在的 index (預先設為python最大值)
     rowIdxSubstract = 0 # 因應skip列，異動 row index
     contentList = [line.strip() for line in csvFile.readlines()]
     for idx, line in enumerate(contentList):
