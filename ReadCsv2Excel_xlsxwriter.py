@@ -50,8 +50,10 @@ with codecs.open(filePath, "r", "utf-8") as csvFile:
         if any('Records' in item for item in lineArr):
             recordsLevel = int(lineArr[0])
             recordsIdx = idx
-        if idx > recordsIdx:
-            if int(tempLine[0]) >= recordsLevel + 2:
+            rowIdxSubstract = rowIdxSubstract + 1
+            continue
+        if idx > recordsIdx: # 讀到的列index超過Records的index
+            if int(tempLine[0]) >= recordsLevel + 2: # 讀到的level ≥ Records 的 level+2
                 tempLine[0] = str(int(tempLine[0]) - 1)
         print(tempLine)
         ws.write_row(startColumn, tempLine)
