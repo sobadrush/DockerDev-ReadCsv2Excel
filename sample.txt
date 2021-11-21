@@ -11,7 +11,7 @@
 	2 	EndFlag 		String 		2 	Y 	最後一頁註記(00：最後一頁,01：還有資料)
 	2 	NextKey 		String 		60 	Y 	續查鍵值,續查時帶入到下一個上行電文的InquiryKey(查詢鍵值)欄位中
 	2 	OccurCount 		number 		2 	Y 	本次資料筆數，資料格式：NUMBER(2,0)
-	2 	Records 		List 			0 	N 	Minimum=0
+	2 	Records 		List 		0 	N 	Minimum=0
 	3 		Record 		Object
 	4 			CardType 	String 		2 	N 	卡別
 	4 			CardNo 		String 		16 	N 	卡號

@@ -8,6 +8,8 @@ from pandas import DataFrame
 import os
 import xlsxwriter
 
+import utils as myUtils
+
 filePath = input("請輸入要讀取的電文txt檔(不輸入預設為 sample.txt )：") or "./sample.txt" # 讀取的txt檔相對路徑
 print("相對本路徑的txt檔名: " + filePath)
 
@@ -30,6 +32,7 @@ with codecs.open(filePath, "r", "utf-8") as csvFile:
         startColumn = ("A" + str(idx + 1 - rowIdxSubstract))
         line = line.replace("\t", "").replace(",", "，")
         lineArr = line.split(' ')
+        myUtils.handleMemo(lineArr) # 替換說明中的空白為"，"
         tempLine = lineArr
         if len(tempLine) == 1 and tempLine[0] == '':
             rowIdxSubstract = rowIdxSubstract + 1
@@ -48,9 +51,10 @@ with codecs.open(filePath, "r", "utf-8") as csvFile:
             print(tempLine)
             continue
         if any('Records' in item for item in lineArr):
+            ws.write_row(startColumn, tempLine, wb.add_format({'bold': 1, "bg_color": "#9999CC"}))
             recordsLevel = int(lineArr[0])
             recordsIdx = idx
-            rowIdxSubstract = rowIdxSubstract + 1
+            print(tempLine)
             continue
         if idx > recordsIdx: # 讀到的列index超過Records的index
             if int(tempLine[0]) >= recordsLevel + 2: # 讀到的level ≥ Records 的 level+2
@@ -58,3 +62,8 @@ with codecs.open(filePath, "r", "utf-8") as csvFile:
         print(tempLine)
         ws.write_row(startColumn, tempLine)
 wb.close()
+
+# print("... Start Transfer xlsx to csv ...")
+# read_file = pd.read_excel (r'./result.xlsx')
+# read_file.to_csv (r'./result.csv', index = None, header=True)
+# print("... Finished Transfer xlsx to csv ...")
