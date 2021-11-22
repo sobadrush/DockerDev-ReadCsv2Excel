@@ -41,12 +41,12 @@ with codecs.open(filePath, "r", "utf-8") as csvFile:
             rowIdxSubstract = rowIdxSubstract + 1
             continue
         if any('TRANRQ' in item for item in lineArr):
-            tempLine = ['1', 'TRANRQ', 'object', '', '']
+            tempLine = ['1', 'TRANRQ', 'object', '0', 'N', '欄位名稱及說明']
             ws.write_row(startColumn, tempLine, wb.add_format({'bold': 1, "bg_color": "#2894FF"}))
             print(tempLine)
             continue
         if any('TRANRS' in item for item in lineArr):
-            tempLine = ['1', 'TRANRS', 'object', '', '']
+            tempLine = ['1', 'TRANRS', 'object', '0', 'N', '欄位名稱及說明']
             ws.write_row(startColumn, tempLine, wb.add_format({'bold': 1, "bg_color": "#00DB00"}))
             print(tempLine)
             continue
@@ -63,7 +63,8 @@ with codecs.open(filePath, "r", "utf-8") as csvFile:
         ws.write_row(startColumn, tempLine)
 wb.close()
 
-# print("... Start Transfer xlsx to csv ...")
-# read_file = pd.read_excel (r'./result.xlsx')
-# read_file.to_csv (r'./result.csv', index = None, header=True)
-# print("... Finished Transfer xlsx to csv ...")
+print("... Start Transfer xlsx to csv ...")
+df = pd.read_excel(r'./result.xlsx')
+# df = df.loc[:, ~df.columns.str.contains('Unnamed')]
+df.to_csv(r'./result.csv', index=None, header=True, encoding='utf-8-sig')
+print("... Finished Transfer xlsx to csv ...")

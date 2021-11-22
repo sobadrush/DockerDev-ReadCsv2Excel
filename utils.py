@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+
 def plus(a, b):
     return a + b
 
@@ -22,8 +23,9 @@ def handleMemo(_list):
     # 2. Concate list: ref. https://stackoverflow.com/questions/1720421/how-do-i-concatenate-two-lists-in-python
     _list[:] = tempList[0:5] + [''.join(tempList[5:])] 
 
+
 if __name__ == '__main__':
-    # print(f'My Answer is: {plus(3, 4)}')
-    myList = ["A1", "B2", "C3", "D4", "E 5", "F  6"]
-    handleMemo(myList)
-    print(f'handleMemo is: {myList}')
+    print(f'My Answer is: {plus(3, 4)}')
+    # myList = ["A1", "B2", "C3", "D4", "E 5", "F  6"]
+    # handleMemo(myList)
+    # print(f'handleMemo is: {myList}')
